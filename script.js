@@ -6,6 +6,16 @@ var defaultCity = "Atlanta";
 var lastCity = citiesSearchedFor.length - 1;
 var apiKey = "bc0c1f8c95416e6d650b2f0f1d8e489c";
 
+console.log(citiesSearchedFor[lastCity]);
+
+// This if/else states that if there are recent searches in local storage that the last city searched should be the loaded first, otherwise the default city of Atlanta should be loaded.
+if (citiesSearchedFor[lastCity] === undefined){
+    getCurrentWeather(defaultCity);
+} else {
+    getCurrentWeather(citiesSearchedFor[lastCity])
+}
+
+
 // This is the function that sets all queryURLs and does all ajax calls for weather data, the cityName is dependant on what event listener is triggering the function
 function getCurrentWeather(cityName) {
   // This first query and call will pull the current weather data for the searched for city
@@ -126,8 +136,6 @@ function getCurrentWeather(cityName) {
     });
   });
 }
-
-getCurrentWeather((cityName = defaultCity));
 
 // This for loop pulls from any cities found in local storage to recreate their list elements in the sidebar.
 for (var i = 0; i < citiesSearchedFor.length; i++) {
