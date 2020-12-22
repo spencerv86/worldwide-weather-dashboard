@@ -1,5 +1,14 @@
+/* #title-bar {
+    width: auto;
+} */
+
 .dashboard {
     font-size: 40px;
+}
+
+#sidebar {
+    background-color: whitesmoke;   
+
 }
 
 #search-line {
@@ -10,8 +19,12 @@
     margin-left: 1rem;
 }
 
+/* #weather-container {
+    padding-right: 20px;
+} */
+
 .card {
-    width: 100%;
+    width: 90%;
     /* margin-top: 1rem; */
 }
 
