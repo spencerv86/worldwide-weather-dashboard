@@ -6,7 +6,6 @@ var lastCity = citiesSearchedFor.length - 1;
 // This is the API key that will be referenced in each queryURL
 var apiKey = "bc0c1f8c95416e6d650b2f0f1d8e489c";
 
-console.log(citiesSearchedFor[lastCity]);
 
 // This if/else states that if there are recent searches in local storage that the last city searched should be the loaded first, otherwise the default city of Atlanta should be loaded.
 if (citiesSearchedFor[lastCity] === undefined) {
@@ -86,7 +85,7 @@ function getCurrentWeather(cityName) {
       method: "GET",
     }).then(function (forecast) {
       console.log(forecast);
-      console.log(moment.unix(forecast.daily[1].dt).format("MM/DD/YYYY"));
+    //   console.log(moment.unix(forecast.daily[1].dt).format("MM/DD/YYYY"));
 
       //   This for loop will create the cards that will display the 5-day forecast and fill their data points
       $("#forecast-grid").empty();
@@ -190,6 +189,6 @@ $("#clear-button").on("click", function (event) {
   <p>Wind Speed: <span id="currentWind"></span> MPH</p>
   <p>UV Index: <span id="currentUV"></span></p>`);
 
-//   var cityName = "Atlanta";
+  //   var cityName = "Atlanta";
   getCurrentWeather("Atlanta");
 });

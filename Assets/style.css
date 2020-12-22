@@ -1,47 +1,53 @@
-/* #title-bar {
-    width: auto;
-} */
+/* Title navbar styles */
 
 .dashboard {
-    font-size: 40px;
+  font-size: 40px;
 }
 
-#sidebar {
-    background-color: whitesmoke;
 
+/* Sidebar styles */
+#sidebar {
+  background-color: whitesmoke;
 }
 
 #search-line {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .search-form {
-    margin-left: 1rem;
-}
-
-#weather-container {  
-}
-
-.card {
-    width: 100%;
-    margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 #clear-button {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 100px;
+}
+
+/* Main forecast container styles */
+.col-1 {
+  margin-right: -7%;
+}
+
+.card {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Future forecast styles */
+#five-day-title {
     margin-top: 20px;
-    margin-left: 20px;
-    width: 100px;
+    margin-bottom: -10px;
 }
 
 .futurecast {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 #future-header {
-    margin-top: 10px;
-
+  margin-top: 10px;
 }
 
 .future-data {
-    padding: 0;
+  padding: 0;
 }

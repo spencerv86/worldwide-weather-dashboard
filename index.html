@@ -38,7 +38,7 @@
         >Weather Dashboard</span
       >
     </nav>
-
+    <!-- This is the code for the sidebar where the user makes their searches and can refer to previous searches -->
     <div class="row">
       <div class="sidenav col-4" id="sidebar">
         <h3 id="search-line">Search for a City:</h3>
@@ -65,7 +65,9 @@
           Clear
         </button>
       </div>
-      <div id="weather-container" class="col-8">
+      <div class="col-1"></div>
+      <!-- This is the main container for the user's search results holding current weather and the 5-day forecast below, -->
+      <div id="weather-container" class="col-7">
         <div class="row">
           <div class="card">
             <div id="current-card" class="card-body">
@@ -82,9 +84,10 @@
           </div>
         </div>
         <div class="row">
-          <h1>5-Day Forecast:</h1>
+          <h2 id="five-day-title">5-Day Forecast:</h2>
         </div>
         <div id="forecast-grid" class="row"></div>
+        <!-- This is where the 5-day forecast will be added dynamically -->
       </div>
     </div>
 
