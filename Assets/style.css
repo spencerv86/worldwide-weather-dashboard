@@ -18,7 +18,7 @@
 #clear-button {
     margin-top: 20px;
     margin-left: 20px;
-  
+    width: 100px;
 }
 
 .futurecast {
@@ -26,5 +26,10 @@
 }
 
 #future-header {
-    margin: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.future-data {
+    padding: 0;
 }
