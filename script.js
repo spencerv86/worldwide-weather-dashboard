@@ -6,8 +6,6 @@ var defaultCity = "Atlanta";
 var lastCity = citiesSearchedFor.length - 1;
 var apiKey = "bc0c1f8c95416e6d650b2f0f1d8e489c";
 
-getCurrentWeather((cityName = defaultCity));
-
 // This is the function that sets all queryURLs and does all ajax calls for weather data, the cityName is dependant on what event listener is triggering the function
 function getCurrentWeather(cityName) {
   // This first query and call will pull the current weather data for the searched for city
@@ -54,7 +52,17 @@ function getCurrentWeather(cityName) {
       method: "GET",
     }).then(function (response) {
       console.log(response);
-      $("#currentUV").text(response.value);
+      var currentUVEl = $("#currentUV");
+      $(currentUVEl).text(response.value);
+    //   $(currentUVEl).attr("style", "color: white")
+      if (response.value < 3) {
+          $(currentUVEl).attr("class", "badge badge-success")
+      } else if (response.value > 2 && response.value < 8) {
+          $(currentUVEl).attr("class", "badge badge-warning")
+      } else if (response.value > 8) {
+          $(currentUVEl).attr("class", "badge badge-danger")
+      }
+
     });
 
     // This query and function calls for the 7 day forecast which will be used to fill the 5-day forecast boxes and their data-points
@@ -118,6 +126,8 @@ function getCurrentWeather(cityName) {
     });
   });
 }
+
+getCurrentWeather((cityName = defaultCity));
 
 // This for loop pulls from any cities found in local storage to recreate their list elements in the sidebar.
 for (var i = 0; i < citiesSearchedFor.length; i++) {
