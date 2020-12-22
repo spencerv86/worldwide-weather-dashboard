@@ -2,10 +2,29 @@
     font-size: 40px;
 }
 
+#search-line {
+    margin-left: 15px;
+}
+
+.search-form {
+    margin-left: 1rem;
+}
+
 .card {
     width: 100%;
+    /* margin-top: 1rem; */
+}
+
+#clear-button {
+    margin-top: 20px;
+    margin-left: 20px;
+  
 }
 
 .futurecast {
     margin-right: 30px;
+}
+
+#future-header {
+    margin: 10px;
 }
