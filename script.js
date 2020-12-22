@@ -1,20 +1,19 @@
-// var currentIconEl = $("#currentIcon");
-var currentDate = document.getElementById("#");
 var citiesSearchedFor = JSON.parse(localStorage.getItem("Cities")) || [];
 console.log(citiesSearchedFor);
 var defaultCity = "Atlanta";
 var lastCity = citiesSearchedFor.length - 1;
+
+// This is the API key that will be referenced in each queryURL
 var apiKey = "bc0c1f8c95416e6d650b2f0f1d8e489c";
 
 console.log(citiesSearchedFor[lastCity]);
 
 // This if/else states that if there are recent searches in local storage that the last city searched should be the loaded first, otherwise the default city of Atlanta should be loaded.
-if (citiesSearchedFor[lastCity] === undefined){
-    getCurrentWeather(defaultCity);
+if (citiesSearchedFor[lastCity] === undefined) {
+  getCurrentWeather(defaultCity);
 } else {
-    getCurrentWeather(citiesSearchedFor[lastCity])
+  getCurrentWeather(citiesSearchedFor[lastCity]);
 }
-
 
 // This is the function that sets all queryURLs and does all ajax calls for weather data, the cityName is dependant on what event listener is triggering the function
 function getCurrentWeather(cityName) {
@@ -64,15 +63,13 @@ function getCurrentWeather(cityName) {
       console.log(response);
       var currentUVEl = $("#currentUV");
       $(currentUVEl).text(response.value);
-    //   $(currentUVEl).attr("style", "color: white")
       if (response.value < 3) {
-          $(currentUVEl).attr("class", "badge badge-success")
+        $(currentUVEl).attr("class", "badge badge-success");
       } else if (response.value > 2 && response.value < 8) {
-          $(currentUVEl).attr("class", "badge badge-warning")
+        $(currentUVEl).attr("class", "badge badge-warning");
       } else if (response.value > 8) {
-          $(currentUVEl).attr("class", "badge badge-danger")
+        $(currentUVEl).attr("class", "badge badge-danger");
       }
-
     });
 
     // This query and function calls for the 7 day forecast which will be used to fill the 5-day forecast boxes and their data-points
@@ -91,8 +88,8 @@ function getCurrentWeather(cityName) {
       console.log(forecast);
       console.log(moment.unix(forecast.daily[1].dt).format("MM/DD/YYYY"));
 
-    //   This for loop will create the cards that will display the 5-day forecast and fill their data points
-    $("#forecast-grid").empty();
+      //   This for loop will create the cards that will display the 5-day forecast and fill their data points
+      $("#forecast-grid").empty();
 
       for (var i = 1; i < 6; i++) {
         var forecastBox = $("<div>").attr(
@@ -108,14 +105,11 @@ function getCurrentWeather(cityName) {
         forecastBox.append(forecastDate);
 
         var forecastBody = $("<div>").attr("class", "card-body future-data");
-        
-        
+
         var forecastSky = forecast.daily[i].weather[0];
         var forecastIcon = $("<img>").attr(
           "src",
-          "https://openweathermap.org/img/wn/" +
-            forecastSky.icon +
-            "@2x.png"
+          "https://openweathermap.org/img/wn/" + forecastSky.icon + "@2x.png"
         );
         $(forecastIcon).attr("alt", forecastSky.description);
         forecastBody.append(forecastIcon);
@@ -137,7 +131,7 @@ function getCurrentWeather(cityName) {
   });
 }
 
-// This for loop pulls from any cities found in local storage to recreate their list elements in the sidebar.
+// This for loop pulls from any cities found in local storage and recreates their list elements in the sidebar.
 for (var i = 0; i < citiesSearchedFor.length; i++) {
   var cityName = citiesSearchedFor[i];
   var newCity = $("<a>");
@@ -149,7 +143,7 @@ for (var i = 0; i < citiesSearchedFor.length; i++) {
   $("#cityList").append(newCity);
 }
 
-// This event listener runs the getCurrentWeather function for the user inputted city
+// This event listener runs the getCurrentWeather function for the user-searched city when the user clicks the Search button
 $("#searchBtn").on("click", function (event) {
   event.preventDefault();
   console.log($("#searchCity").val());
@@ -167,11 +161,13 @@ $("#searchBtn").on("click", function (event) {
   localStorage.setItem("Cities", JSON.stringify(citiesSearchedFor));
 });
 
+// This event listener changes the weather data if the user clicks on previously searched cities
 $("#cityList").on("click", ".previous-cities", function (event) {
   var cityName = $(this).text();
   getCurrentWeather(cityName);
 });
 
+// This event listener clears the previous searches and resets the page to the default city of Atlanta if the user presses the Clear button
 $("#clear-button").on("click", function (event) {
   localStorage.setItem("Cities", JSON.stringify([]));
   $("#cityList").empty();
@@ -194,6 +190,6 @@ $("#clear-button").on("click", function (event) {
   <p>Wind Speed: <span id="currentWind"></span> MPH</p>
   <p>UV Index: <span id="currentUV"></span></p>`);
 
-  var cityName = "Atlanta";
-  getCurrentWeather(cityName);
+//   var cityName = "Atlanta";
+  getCurrentWeather("Atlanta");
 });
