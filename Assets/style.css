@@ -7,7 +7,7 @@
 }
 
 #sidebar {
-    background-color: whitesmoke;   
+    background-color: whitesmoke;
 
 }
 
@@ -19,13 +19,12 @@
     margin-left: 1rem;
 }
 
-/* #weather-container {
-    padding-right: 20px;
-} */
+#weather-container {  
+}
 
 .card {
-    width: 90%;
-    /* margin-top: 1rem; */
+    width: 100%;
+    margin-top: 1rem;
 }
 
 #clear-button {
@@ -40,7 +39,7 @@
 
 #future-header {
     margin-top: 10px;
-    text-align: center;
+
 }
 
 .future-data {

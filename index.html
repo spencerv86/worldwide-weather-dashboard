@@ -30,27 +30,29 @@
   </head>
   <body>
     <!-- This is the simple header -->
-    <nav class="navbar navbar-dark bg-dark justify-content-center">
+    <nav
+      id="title-bar"
+      class="navbar navbar-dark bg-dark justify-content-center"
+    >
       <span class="navbar-brand mb-0 h1 w-100 text-center dashboard"
         >Weather Dashboard</span
       >
     </nav>
+
     <div class="row">
-      <div class="sidenav col-4">
+      <div class="sidenav col-4" id="sidebar">
         <h3 id="search-line">Search for a City:</h3>
+
         <form class="form-inline">
           <div class="form-group mb-2 search-form">
             <label for="searchCity" class="sr-only"></label>
             <input type="search" class="form-control" id="searchCity" />
           </div>
-          <button
-            type="button"
-            class="btn btn-primary mb-2"
-            id="searchBtn"
-          >
+          <button type="button" class="btn btn-primary mb-2" id="searchBtn">
             <i class="fas fa-search"></i>
           </button>
         </form>
+
         <div id="cityList" class="list-group">
           <a
             href="#"
@@ -58,6 +60,7 @@
             >Atlanta</a
           >
         </div>
+
         <button type="button" class="btn btn-secondary" id="clear-button">
           Clear
         </button>
@@ -81,8 +84,7 @@
         <div class="row">
           <h1>5-Day Forecast:</h1>
         </div>
-        <div id="forecast-grid" class="row">
-        </div>
+        <div id="forecast-grid" class="row"></div>
       </div>
     </div>
 
